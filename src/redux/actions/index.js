@@ -15,7 +15,7 @@ export const EDIT_POKEMON = "EDIT_POKEMON";
 export function getAllPokemons() {
   return async function (dispatch) {
     try {
-      const fetchedPokes = await axios(`http://localhost:3001/pokemons`);
+      const fetchedPokes = await axios(`/pokemons`);
 
       dispatch({
         type: GET_ALL_POKEMONS,
@@ -31,7 +31,7 @@ export function getAllPokemons() {
 export function pokeDetails(id) {
   return async function (dispatch) {
     try {
-      const fetchedPokes = await axios(`http://localhost:3001/pokemons/${id}`);
+      const fetchedPokes = await axios(`/pokemons/${id}`);
       return dispatch({
         type: POKE_DETAILS,
         payload: fetchedPokes.data,
@@ -46,7 +46,7 @@ export function getByName(query) {
   return async function (dispatch) {
     try {
       const fetchedPokes = await axios(
-        `http://localhost:3001/pokemons?name=${query}`
+        `/pokemons?name=${query}`
       );
 
       return dispatch({
@@ -63,7 +63,7 @@ export function getByName(query) {
 export function getTypes() {
   return async function (dispatch) {
     try {
-      const fetTypes = await axios(`http://localhost:3001/types`);
+      const fetTypes = await axios(`/types`);
 
       dispatch({
         type: GET_TYPES,
@@ -113,7 +113,7 @@ export function filterCreate(type) {
 export function postPokemon(dataPokemon) {
   console.log(dataPokemon);
   return async function (dispatch) {
-    axios.post("http://localhost:3001/pokemons", dataPokemon).then((data) =>
+    axios.post("/pokemons", dataPokemon).then((data) =>
       dispatch({
         type: POST_POKEMON,
         payload: data,
@@ -125,7 +125,7 @@ export function postPokemon(dataPokemon) {
 export function deletePokemon(pokemonId) {
   return async function (dispatch) {
     try {
-      await axios.delete(`http://localhost:3001/pokemons/${pokemonId}`);
+      await axios.delete(`/pokemons/${pokemonId}`);
       return dispatch({
         type: DELETE_POKEMON,
       });
@@ -141,7 +141,7 @@ export function editPokemon(id, pokemonEditado) {
   return async function (dispatch) {
     try {
       const json = await axios.put(
-        `http://localhost:3001/pokemons/editar/${id}`,
+        `/pokemons/editar/${id}`,
         pokemonEditado
       );
       return dispatch({
