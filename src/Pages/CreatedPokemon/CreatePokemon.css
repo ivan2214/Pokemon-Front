@@ -127,7 +127,7 @@ ul {
 
 .button {
   padding: 1rem;
-  width:fit-content;
+  width: fit-content;
   border-radius: 0.5rem;
   background-color: #33579a;
   color: #fff;
@@ -171,4 +171,32 @@ ul {
   font-family: "Rubik", sans-serif;
   font-size: 15px;
   font-weight: 500;
+}
+
+@media screen and (min-width: 320px) {
+  .containerCreate {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .navBar{
+    width: 100%;
+  }
+  .contGral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }

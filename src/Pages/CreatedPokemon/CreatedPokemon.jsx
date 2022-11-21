@@ -88,7 +88,7 @@ const CreatedPokemon = () => {
   };
 
   return (
-    <div>
+    <div className="containerCreate">
       <div className="navBar">
         <Link to="/home">
           <button className="buttonHome">Return to home</button>
