@@ -10,7 +10,6 @@
   width: 100%;
   background-color: #fff;
   grid-area: texts;
-
 }
 
 .sec-textos {
@@ -51,8 +50,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #33579A;
-  border-radius: 0 100% 0 0  ;
+  background-color: #33579a;
+  border-radius: 0 100% 0 0;
   background-position: center;
   box-shadow: 0 0 3px 9px rgb(0 0 0 / 10%);
 }
@@ -64,14 +63,14 @@ h1 {
 .btn {
   perspective: 1000px;
   padding: 1em 1em;
-  background: linear-gradient(#33579A, #33579A);
+  background: linear-gradient(#33579a, #33579a);
   border: none;
   outline: none;
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 4px;
   color: rgb(255, 255, 255);
-  text-shadow: 0 10px 10px #33579A;
+  text-shadow: 0 10px 10px #33579a;
   cursor: pointer;
   transform: rotateX(70deg) rotateZ(30deg);
   transform-style: preserve-3d;
@@ -84,7 +83,7 @@ h1 {
   content: "";
   width: 100%;
   height: 15px;
-  background-color: #33579A;
+  background-color: #33579a;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -96,7 +95,7 @@ h1 {
   content: "";
   width: 15px;
   height: 100%;
-  background-color: #33579A;
+  background-color: #33579a;
   position: absolute;
   top: 0;
   right: 0;
@@ -106,4 +105,33 @@ h1 {
 
 .btn:hover {
   transform: rotateX(30deg) rotateZ(0);
+}
+
+@media (min-width: 320px) {
+  .landingPage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+  .sec-texts {
+    width: 100%;
+  }
+  .sec-textos {
+    width: 100%;
+    padding: 0;
+  }
+  .sec-pg {
+    width: 80%;
+  }
+
+  .sec-pg h1 {
+    font-size: 1.5rem;
+  }
+  .sec-pg p {
+    font-size: 0.8rem;
+  }
 }
