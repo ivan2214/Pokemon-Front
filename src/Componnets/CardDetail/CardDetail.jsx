@@ -35,7 +35,7 @@ const CardDetail = () => {
         </Link>
       </div>
       {/* pokemon[0].types[0] */}
-      <div>
+    
         {pokemon.length ? (
           <div className="contGral">
             <div className="contRed">
@@ -175,7 +175,7 @@ const CardDetail = () => {
             />
           </div>
         )}
-      </div>
+      
     </>
   );
 };
