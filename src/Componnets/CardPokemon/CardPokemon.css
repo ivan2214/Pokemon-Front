@@ -75,41 +75,61 @@
 .bug {
   background-color: #9cb820ac;
 }
-
-.fire {
-  background-color: #f08030ac;
+.dark {
+  background-color: #775544ac;
 }
-
-.grass {
-  background-color: #22c02aac;
+.dragon {
+  background-color: #7766EFac;
 }
-
-.poison {
-  background-color: #a040a0ac;
+.electric {
+  background-color: #FFCD33ac;
 }
-
-.water {
-  background-color: #6890f0ac;
-}
-
-.flying {
-  background-color: #9096f0ac;
-}
-
-.normal {
-  background-color: #a8a8a8ac;
-}
-
 .fairy {
   background-color: #f09ad9ac;
 }
-
-.electric {
-  background-color: #c09643ac;
+.fire {
+  background-color: #f08030ac;
 }
-
+.fighting {
+  background-color: #BA5444ac;
+}
+.ghost {
+  background-color: #6766BAac;
+}
+.flying {
+  background-color: #8898FEac;
+}
+.grass {
+  background-color: #22c02aac;
+}
 .ground {
   background-color: #e0b668ac;
+}
+.ice {
+  background-color: #66CCFEac;
+}
+.normal {
+  background-color: #a8a8a8ac;
+}
+.poison {
+  background-color: #a040a0ac;
+}
+.rock {background-color: #b3b3b3ac;
+}
+.shadow {
+  background-color: #1a191aac;
+}
+.steel {
+  background-color: #AAAABBac;
+}
+.unknown {
+  background-color: #724859ac;
+}
+.psychic {
+  background-color: #FF5499ac;
+}
+.water {
+  background-color: #6890f0ac;
 }
 
 @keyframes myAnim {
