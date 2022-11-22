@@ -49,7 +49,7 @@
   font-size: 1em;
 }
 
-.types p {
+.types .parrafoType {
   color: #fff;
   display: flex;
   font-weight: 400;

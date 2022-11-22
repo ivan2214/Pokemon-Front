@@ -1,8 +1,3 @@
-ul {
-  margin: 0;
-  padding: 0;
-}
-
 .cardCreate {
   background-color: #fff;
   width: 700px;
@@ -115,7 +110,7 @@ ul {
   justify-content: space-between;
   color: #fff;
   gap: 1.5rem;
-  cursor: pointer;
+  width: fit-content;
 }
 
 .delete {
@@ -183,7 +178,7 @@ ul {
     gap: 1rem;
   }
 
-  .navBar{
+  .navBar {
     width: 100%;
   }
   .contGral {
@@ -193,10 +188,16 @@ ul {
     margin: 0;
   }
 
-  .form{
+  .form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    flex-direction: row;
   }
 }

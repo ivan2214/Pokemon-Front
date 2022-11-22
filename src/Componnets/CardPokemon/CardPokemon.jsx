@@ -26,7 +26,9 @@ const CardPokemon = ({ name, image, types, pokeId }) => {
               return (
                 <p
                   key={pokeId + typeof types[0] === "object" ? t.name : t}
-                  className={typeof types[0] === "object" ? t.name : t}
+                  className={`parrafoType ${
+                    typeof types[0] === "object" ? t.name : t
+                  } `}
                 >
                   {typeof types[0] === "object" ? t.name : t}
                 </p>

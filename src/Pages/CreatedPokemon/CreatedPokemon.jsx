@@ -185,7 +185,7 @@ const CreatedPokemon = () => {
                   <ul className="types">
                     {input.types.map((t) => {
                       return (
-                        <button key={t} className="tipos">
+                        <p key={t} className="tipos">
                           {t.toUpperCase()}
                           <button
                             onClick={() => handleDeleteType(t)}
@@ -193,7 +193,7 @@ const CreatedPokemon = () => {
                           >
                             x
                           </button>
-                        </button>
+                        </p>
                       );
                     })}
                   </ul>
