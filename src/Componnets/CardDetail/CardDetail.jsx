@@ -35,147 +35,144 @@ const CardDetail = () => {
         </Link>
       </div>
       {/* pokemon[0].types[0] */}
-    
-        {pokemon.length ? (
-          <div className="contGral">
-            <div className="contRed">
-              <div
-                className={`${
-                  typeof pokemon[0].types[0] == "object"
-                    ? pokemon[0]?.types[0].name
-                    : pokemon[0]?.types[0]
-                } contGris`}
-              >
-                <div className="contIzq">
-                  <div className="circulo">
-                    <img
-                      loading="lazi"
-                      src={pokemon[0].image}
-                      alt="imagen-del-pokemon"
-                      className="image"
-                    />
+
+      {pokemon.length ? (
+        <div className="contGral">
+          <div className="contRed">
+            <div
+              className={`${
+                typeof pokemon[0].types[0] == "object"
+                  ? pokemon[0]?.types[0].name
+                  : pokemon[0]?.types[0]
+              } contGris`}
+            >
+              <div className="contIzq">
+                <div className="circulo">
+                  <img
+                    loading="lazi"
+                    src={pokemon[0].image}
+                    alt="imagen-del-pokemon"
+                    className="image"
+                  />
+                </div>
+                <div className="infoBasica">
+                  <h2 className="name">{pokemon[0].name}</h2>
+                  <ul className="types">
+                    {pokemon[0].types?.map((t) => {
+                      let nameType = typeof t === "object" ? t.name : t;
+
+                      return (
+                        <div
+                          key={nameType + t?.id}
+                          className={typeof t === "object" ? t.name : t}
+                        >
+                          {typeof t === "object" ? t.name : t}
+                        </div>
+                      );
+                    })}
+                  </ul>
+                  <div className="id">#ID {pokemon[0].pokeId}</div>
+                </div>
+              </div>
+
+              <div className="contDer">
+                <div className="alturaPeso">
+                  <div className="medidas">
+                    <div className="titleDetails">Height</div>
+                    <div>{pokemon[0].height} m</div>
                   </div>
-                  <div className="infoBasica">
-                    <h2 className="name">{pokemon[0].name}</h2>
-                    <ul className="types">
-                      {pokemon[0].types?.map((t) => {
-                        return (
-                          <div
-                            key={
-                              pokemon[0].name + " " + typeof t === "object"
-                                ? t.name
-                                : t
-                            }
-                            className={typeof t === "object" ? t.name : t}
-                          >
-                            {typeof t === "object" ? t.name : t}
-                          </div>
-                        );
-                      })}
-                    </ul>
-                    <div className="id">#ID {pokemon[0].pokeId}</div>
+
+                  <div className="medidas">
+                    <div className="titleDetails">Weight</div>
+                    <div>{pokemon[0].weight} kg</div>
                   </div>
                 </div>
 
-                <div className="contDer">
-                  <div className="alturaPeso">
-                    <div className="medidas">
-                      <div className="titleDetails">Height</div>
-                      <div>{pokemon[0].height} m</div>
-                    </div>
+                <div className="stats">
+                  <div className="filaStat">
+                    <p className="parrafo">Hp</p>
+                    <div className="number">{pokemon[0].hp}</div>
 
-                    <div className="medidas">
-                      <div className="titleDetails">Weight</div>
-                      <div>{pokemon[0].weight} kg</div>
+                    <div className="barra">
+                      <div
+                        className="hp"
+                        style={{
+                          width: `${pokemon[0].hp}%`,
+                        }}
+                      ></div>
                     </div>
                   </div>
 
-                  <div className="stats">
-                    <div className="filaStat">
-                      <p className="parrafo">Hp</p>
-                      <div className="number">{pokemon[0].hp}</div>
-
-                      <div className="barra">
-                        <div
-                          className="hp"
-                          style={{
-                            width: `${pokemon[0].hp}%`,
-                          }}
-                        ></div>
-                      </div>
+                  <div className="filaStat">
+                    <p className="parrafo">Attack</p>
+                    <div className="number">{pokemon[0].attack}</div>
+                    <div className="barra">
+                      <div
+                        className="attack"
+                        style={{
+                          width: `${pokemon[0].attack}%`,
+                        }}
+                      ></div>
                     </div>
-
-                    <div className="filaStat">
-                      <p className="parrafo">Attack</p>
-                      <div className="number">{pokemon[0].attack}</div>
-                      <div className="barra">
-                        <div
-                          className="attack"
-                          style={{
-                            width: `${pokemon[0].attack}%`,
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div className="filaStat">
-                      <p className="parrafo">Defense</p>
-                      <div className="number">{pokemon[0].defense}</div>
-                      <div className="barra">
-                        <div
-                          className="defense"
-                          style={{
-                            width: `${pokemon[0].defense}%`,
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div className="filaStat">
-                      <p className="parrafo">Speed</p>
-                      <div className="number">{pokemon[0].speed}</div>
-                      <div className="barra">
-                        <div
-                          className="speed"
-                          style={{
-                            width: `${pokemon[0].speed}%`,
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    {pokemon[0].createInDataBase && (
-                      <div className={"buttons"}>
-                        <Link
-                          to={`/pokemons/editar/${id}`}
-                          className={`${"editPokemon"} `}
-                        >
-                          Edit Pokemon
-                        </Link>
-                        <button
-                          onClick={(e) => handlerDelete(e)}
-                          className={"buttonRed deleteButton"}
-                        >
-                          Delete Pokemon
-                        </button>
-                      </div>
-                    )}
                   </div>
+
+                  <div className="filaStat">
+                    <p className="parrafo">Defense</p>
+                    <div className="number">{pokemon[0].defense}</div>
+                    <div className="barra">
+                      <div
+                        className="defense"
+                        style={{
+                          width: `${pokemon[0].defense}%`,
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div className="filaStat">
+                    <p className="parrafo">Speed</p>
+                    <div className="number">{pokemon[0].speed}</div>
+                    <div className="barra">
+                      <div
+                        className="speed"
+                        style={{
+                          width: `${pokemon[0].speed}%`,
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  {pokemon[0].createInDataBase && (
+                    <div className={"buttons"}>
+                      <Link
+                        to={`/pokemons/editar/${id}`}
+                        className={`${"editPokemon"} `}
+                      >
+                        Edit Pokemon
+                      </Link>
+                      <button
+                        onClick={(e) => handlerDelete(e)}
+                        className={"buttonRed deleteButton"}
+                      >
+                        Delete Pokemon
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           </div>
-        ) : (
-          <div className="poke">
-            <img
-              loading="lazi"
-              src={pokeball}
-              alt="pokeball"
-              className="pokeball"
-            />
-          </div>
-        )}
-      
+        </div>
+      ) : (
+        <div className="poke">
+          <img
+            loading="lazi"
+            src={pokeball}
+            alt="pokeball"
+            className="pokeball"
+          />
+        </div>
+      )}
     </>
   );
 };

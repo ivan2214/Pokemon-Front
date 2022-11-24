@@ -15,11 +15,9 @@ const EditPokemon = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const history = useHistory();
-
-  const allPokemons = useSelector((state) => state.pokemons);
   const pokemonDetail = useSelector((state) => state.details);
   const types = useSelector((state) => state.types);
-
+  console.log(pokemonDetail);
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     name: "",
@@ -36,7 +34,7 @@ const EditPokemon = () => {
   useEffect(() => {
     dispatch(getTypes());
     dispatch(pokeDetails(id));
-  }, [dispatch, allPokemons.length, id]);
+  }, [dispatch, id]);
 
   useEffect(() => {
     if (pokemonDetail.length) {
@@ -53,9 +51,10 @@ const EditPokemon = () => {
   }, [input]);
 
   const handleChange = (ev) => {
+    ev.preventDefault();
     setInput({
       ...input,
-      [ev.target.name]: ev.target.value.toLowerCase(),
+      [ev.target.name]: ev.target.value,
     });
 
     setErrors(
@@ -66,14 +65,12 @@ const EditPokemon = () => {
     );
   };
   const handleSelect = (ev) => {
+    console.log(ev.target.value);
     if (!input.types.includes(ev.target.value)) {
       setInput({
         ...input,
-        types: [...input.types, ev.target.value],
+        types: [...input.types, { name: ev.target.value }],
       });
-    }
-    if (input.types.includes(ev.target.value)) {
-      alert("Tipo ya seleccionado");
     }
   };
 
@@ -179,7 +176,7 @@ const EditPokemon = () => {
                 <div>
                   <select
                     className="select"
-                    onChange={(ev) => handleSelect(ev)}
+                    onChange={(e) => handleSelect(e)}
                     defaultValue="title"
                   >
                     <option value="title" disabled name="types">
@@ -189,7 +186,7 @@ const EditPokemon = () => {
                       return (
                         <option
                           value={t.name}
-                          key={t.name + t.id}
+                          key={t.id + t.name}
                           className="options"
                         >
                           {t.name}
@@ -200,15 +197,18 @@ const EditPokemon = () => {
 
                   <ul className="types">
                     {input.types.map((t) => {
+                      let nameType = typeof t === "object" ? t.name : t;
+                      console.log(nameType);
                       return (
-                        <button
-                          key={` ${t.name}  ${pokemonDetail.pokeId} `}
-                          onClick={() => handleDeleteType(t)}
-                          className="tipos"
-                        >
-                          {t.name}
-                          <p>x</p>
-                        </button>
+                        <p key={nameType + t.id} className="tipos">
+                          {t.name.toUpperCase()}
+                          <button
+                            onClick={() => handleDeleteType(t)}
+                            className="delete"
+                          >
+                            x
+                          </button>
+                        </p>
                       );
                     })}
                   </ul>
