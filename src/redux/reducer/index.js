@@ -44,19 +44,19 @@ const reducer = (state = initialState, { type, payload, loading }) => {
       const sortedPokemon =
         payload === "asc"
           ? allPokes.sort(function (a, b) {
-              if (a.name > b.name) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return 1;
               }
-              if (b.name > a.name) {
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
                 return -1;
               }
               return 0;
             })
           : allPokes.sort(function (a, b) {
-              if (a.name > b.name) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return -1;
               }
-              if (b.name > a.name) {
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
                 return 1;
               }
               return 0;
